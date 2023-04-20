@@ -9,8 +9,17 @@ pragma circom 2.1.4;
 
 
 template Range() {
-    // your code here
-   
+    signal input a;
+    signal input lowerbound;
+    signal input upperbound;
+
+    signal b;
+    
+    signal output out;
+
+    b <-- lowerbound <= a && a <= upperbound ? 1 : 0;
+
+    out <== b;
 }
 
 component main  = Range();
