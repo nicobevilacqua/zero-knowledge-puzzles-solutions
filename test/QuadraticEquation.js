@@ -4,7 +4,7 @@ const path = require("path");
 const F1Field = require("ffjavascript").F1Field;
 const Scalar = require("ffjavascript").Scalar;
 exports.p = Scalar.fromString(
-  "21888242871839275222246405745257275088548364400416034343698204186575808495617",
+  "21888242871839275222246405745257275088548364400416034343698204186575808495617"
 );
 const Fr = new F1Field(exports.p);
 
@@ -17,7 +17,7 @@ describe("Quadratic Equations Test ", function () {
 
   it("Should create a Quadratic circuit verifier successfully", async () => {
     const circuit = await wasm_tester(
-      path.join(__dirname, "../QuadraticEquation", "QuadraticEquation.circom"),
+      path.join(__dirname, "../QuadraticEquation", "QuadraticEquation.circom")
     );
     await circuit.loadConstraints();
     let witness;
@@ -25,8 +25,8 @@ describe("Quadratic Equations Test ", function () {
     const expectedOutput = 1;
 
     witness = await circuit.calculateWitness(
-      { x: "3", a: "2", b: "2", c: "4", res: "28" },
-      true,
+      { x: "3", a: "2", b: "2", c: "4", res: "64" },
+      true
     );
 
     assert(Fr.eq(Fr.e(witness[0]), Fr.e(1)));
@@ -34,7 +34,7 @@ describe("Quadratic Equations Test ", function () {
 
     witness = await circuit.calculateWitness(
       { x: "3", a: "2", b: "2", c: "4", res: "30" },
-      true,
+      true
     );
 
     const expectedOutput2 = 0;
