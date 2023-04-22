@@ -38,8 +38,8 @@ template QuadraticEquation() {
     signal get;
 
     component p = Pow();
-    p.in[0] <== 3;
-    p.in[1] <== 3;
+    p.in[0] <== x;
+    p.in[1] <== 2;
 
     component m1 = Mul();
     m1.in[0] <== a;
